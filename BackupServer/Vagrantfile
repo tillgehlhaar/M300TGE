@@ -8,23 +8,23 @@
 Vagrant.configure("2") do |config|
   config.vm.synced_folder ".", "/home/vagrant" 
 
-  config.vm.define "p0bkve01" do |bk|
+  config.vm.define "p2bkre02" do |bk|
     bk.vm.box = "generic/debian10"
 	    bk.vm.provider "virtualbox" do |vb|
 	      vb.memory = "1024"  
 	    end
-    bk.vm.hostname = "p0bkve01"
+    bk.vm.hostname = "p2bkre02"
     bk.vm.network "private_network",  ip: "172.16.18.215"
     bk.vm.provision "shell", path: "scripts/config.sh" 
 
   end
 
-  config.vm.define "p0bkve02" do |kb|
+  config.vm.define "p2bkre02" do |kb|
     kb.vm.box = "generic/debian10"
 	    kb.vm.provider "virtualbox" do |vb|
 	      vb.memory = "1024"  
 	    end
-    kb.vm.hostname = "p0bkve02"
+    kb.vm.hostname = "p2bkre02"
     kb.vm.network "private_network",  ip: "172.16.18.216"
     kb.vm.provision "shell", path: "scripts/config.sh" 
       
