@@ -107,7 +107,8 @@ Das Datei system des Backups speicher ist xfs. Daher muss auf dem Backup server 
 ```
 
 ## Netzwerkplan
-
+***
+![Netzwerkplan](https://raw.githubusercontent.com/tillgehlhaar/M300TGE/main/Netzwerkplan.png)
 
 
 ## Reflexion
