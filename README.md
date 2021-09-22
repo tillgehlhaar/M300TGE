@@ -106,6 +106,10 @@ Das Datei system des Backups speicher ist xfs. Daher muss auf dem Backup server 
     sudo apt-get install xfsprogs
 ```
 
+## Netzwerkplan
+
+
+
 ## Reflexion
 
 Vor diesem Projekt hatte ich noch nie etwas von Vagrant gehört, es war sehr neu für mich. Am Anfang hatte ich ein bisschen Mühe. Ich hab viel herumprobiert und getestet bis ich einwenig reingekommen bin. Am Anfang habe ich die Dokumentation etwas vernachlässigt oder besser gesagt vergessen. In der Dokumentation habe ich einen Spickzettel für Befehle gemacht, damit ich ein bisschen den Überblick habe, was welcher Befehl macht.
