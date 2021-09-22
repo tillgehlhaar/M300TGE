@@ -7,11 +7,7 @@
 # you're doing.
 Vagrant.configure("2") do |config|
   config.vm.synced_folder ".", "/home/vagrant" 
-  # The most common configuration options are documented and commented below.
-  # For a complete reference, please see the online documentation at
-  # https://docs.vagrantup.com.
 
-  # Every Vagrant development environment requires a box. You can search for
   config.vm.define "p0bkve01" do |bk|
     bk.vm.box = "generic/debian10"
 	    bk.vm.provider "virtualbox" do |vb|
@@ -19,20 +15,7 @@ Vagrant.configure("2") do |config|
 	    end
     bk.vm.hostname = "p0bkve01"
     bk.vm.network "private_network",  ip: "172.16.18.215"
-   	bk.vm.provision "shell", inline: <<-SHELL
-      sudo useradd -m -d /home/veeam/ -s /bin/bash veeam
-      sudo sed -i -e's/netzmask 255.255.255.0/255.255.240.0/' /etc/network/interfaces
-      sudo sed -i -e '$a gateway 172.16.16.39' -e '$a dns-nameservers 172.16.16.7 172.16.16.4' -e '$a dns-search workgroup' /etc/network/interfaces 
-      sudo cp /home/vagrant/sources.list /etc/apt/
-      sudo apt clean
-      sudo apt update
-      sudo apt-get install open-iscsi
-      sudo apt install multipath-tools
-      sudo systemctl restart multipathd
-      sudo apt-get install xfsprogs
-      sudo apt-get install open-vm-tools
-      sudo apt-get install htop
-      SHELL
+    bk.vm.provision "shell", path: "scripts/config.sh" 
 
   end
 
@@ -43,75 +26,31 @@ Vagrant.configure("2") do |config|
 	    end
     kb.vm.hostname = "p0bkve02"
     kb.vm.network "private_network",  ip: "172.16.18.216"
-   	kb.vm.provision "shell", inline: <<-SHELL
-      sudo useradd -m -d /home/veeam/ -s /bin/bash veeam
-      sudo sed -i -e's/netzmask 255.255.255.0/255.255.240.0/' /etc/network/interfaces
-      sudo sed -i -e '$a gateway 172.16.16.39' -e '$a dns-nameservers 172.16.16.7 172.16.16.4' -e '$a dns-search workgroup' /etc/network/interfaces 
-      sudo cp /home/vagrant/sources.list /etc/apt/
-      sudo apt clean
-      sudo apt update
-      sudo apt-get install open-iscsi
-      sudo apt install multipath-tools
-      sudo systemctl restart multipathd
-      sudo apt-get install xfsprogs
-      sudo apt-get install open-vm-tools
-      sudo apt-get install htop
-      SHELL
+    kb.vm.provision "shell", path: "scripts/config.sh" 
+      
+  end
+
+  config.vm.define "p0bkve03" do |kt|
+    kt.vm.box = "generic/debian10"
+	    kt.vm.provider "virtualbox" do |vb|
+	      vb.memory = "1024"  
+	    end
+    kt.vm.hostname = "p0bkve02"
+    kt.vm.network "private_network",  ip: "172.16.18.217"
+    kt.vm.provision "shell", path: "scripts/config.sh" 
+
+  end
+
+  config.vm.define "p0bkve04" do |ko|
+    ko.vm.box = "generic/debian10"
+	    ko.vm.provider "virtualbox" do |vb|
+	      vb.memory = "1024"  
+	    end
+    ko.vm.hostname = "p0bkve02"
+    ko.vm.network "private_network",  ip: "172.16.18.218"
+    ko.vm.provision "shell", path: "scripts/config.sh" 
 
   end
   
 
-  # Disable automatic box update checking. If you disable this, then
-  # boxes will only be checked for updates when the user runs
-  # `vagrant box outdated`. This is not recommended.
-  # config.vm.box_check_update = false
-
-  # Create a forwarded port mapping which allows access to a specific port
-  # within the machine from a port on the host machine. In the example below,
-  # accessing "localhost:8080" will access port 80 on the guest machine.
-  # NOTE: This will enable public access to the opened port
-  # config.vm.network "forwarded_port", guest: 80, host: 8080
-
-  # Create a forwarded port mapping which allows access to a specific port
-  # within the machine from a port on the host machine and only allow access
-  # via 127.0.0.1 to disable public access
-  # config.vm.network "forwarded_port", guest: 80, host: 8080, host_ip: "127.0.0.1"
-
-  # Create a private network, which allows host-only access to the machine
-  # using a specific IP.
-  # config.vm.network "private_network", ip: "192.168.33.10"
-
-  # Create a public network, which generally matched to bridged network.
-  # Bridged networks make the machine appear as another physical device on
-  # your network.
-  # config.vm.network "public_network"
-
-  # Share an additional folder to the guest VM. The first argument is
-  # the path on the host to the actual folder. The second argument is
-  # the path on the guest to mount the folder. And the optional third
-  # argument is a set of non-required options.
-  # config.vm.synced_folder "../data", "/vagrant_data"
-
-  # Provider-specific configuration so you can fine-tune various
-  # backing providers for Vagrant. These expose provider-specific options.
-  # Example for VirtualBox:
-  #
-  # config.vm.provider "virtualbox" do |vb|
-  #   # Display the VirtualBox GUI when booting the machine
-  #   vb.gui = true
-  #
-  #   # Customize the amount of memory on the VM:
-  #   vb.memory = "1024"
-  # end
-  #
-  # View the documentation for the provider you are using for more
-  # information on available options.
-
-  # Enable provisioning with a shell script. Additional provisioners such as
-  # Ansible, Chef, Docker, Puppet and Salt are also available. Please see the
-  # documentation for more information about their specific syntax and use.
-  # config.vm.provision "shell", inline: <<-SHELL
-  #   apt-get update
-  #   apt-get install -y apache2
-  # SHELL
 end
