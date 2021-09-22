@@ -77,10 +77,13 @@ Nichts besonderes.
 * Zugang nur via SSH
 
 #### Firewall
-| Server | Firewall Rules |
-|:-:|-|
-| ubuntu-ldap | sudo ufw allow 'Apache'<br>sudo ufw allow 80/tcp<br>sudo ufw allow 22/tcp<br>sudo ufw default deny incoming<br>sudo ufw default allow outgoing |
-| ubuntu-xx | sudo ufw allow 'Apache'<br>sudo ufw allow 22/tcp<br>sudo ufw default deny incoming<br>sudo ufw default allow outgoing |
+sudo apt-get install ufw -y
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+sudo ufw allow ssh
+sudo ufw allow 22
+sudo ufw allow 80
+sudo ufw enable
 
 
 #### Fail2Ban installiert
