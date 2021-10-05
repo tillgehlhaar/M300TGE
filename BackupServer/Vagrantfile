@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
@@ -54,3 +55,61 @@ Vagrant.configure("2") do |config|
   
 
 end
+=======
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# All Vagrant configuration is done below. The "2" in Vagrant.configure
+# configures the configuration version (we support older styles for
+# backwards compatibility). Please don't change it unless you know what
+# you're doing.
+Vagrant.configure("2") do |config|
+  config.vm.synced_folder ".", "/home/vagrant" 
+
+  config.vm.define "p2bkre02" do |bk|
+    bk.vm.box = "generic/debian10"
+	    bk.vm.provider "virtualbox" do |vb|
+	      vb.memory = "1024"  
+	    end
+    bk.vm.hostname = "p2bkre02"
+    bk.vm.network "private_network",  ip: "172.16.18.215"
+    bk.vm.provision "shell", path: "scripts/config.sh" 
+
+  end
+
+  config.vm.define "p2bkre02" do |kb|
+    kb.vm.box = "generic/debian10"
+	    kb.vm.provider "virtualbox" do |vb|
+	      vb.memory = "1024"  
+	    end
+    kb.vm.hostname = "p2bkre02"
+    kb.vm.network "private_network",  ip: "172.16.18.216"
+    kb.vm.provision "shell", path: "scripts/config.sh" 
+      
+  end
+
+  config.vm.define "p0bkve03" do |kt|
+    kt.vm.box = "generic/debian10"
+	    kt.vm.provider "virtualbox" do |vb|
+	      vb.memory = "1024"  
+	    end
+    kt.vm.hostname = "p0bkve02"
+    kt.vm.network "private_network",  ip: "172.16.18.217"
+    kt.vm.provision "shell", path: "scripts/config.sh" 
+
+  end
+
+  config.vm.define "p0bkve04" do |ko|
+    ko.vm.box = "generic/debian10"
+	    ko.vm.provider "virtualbox" do |vb|
+	      vb.memory = "1024"  
+	    end
+    ko.vm.hostname = "p0bkve02"
+    ko.vm.network "private_network",  ip: "172.16.18.218"
+    ko.vm.provision "shell", path: "scripts/config.sh" 
+
+  end
+  
+
+end
+>>>>>>> bc630521f6d6b5cfb4c6c8d9a370a1de40baf649

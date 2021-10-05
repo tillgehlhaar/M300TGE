@@ -77,10 +77,13 @@ Nichts besonderes.
 * Zugang nur via SSH
 
 #### Firewall
-| Server | Firewall Rules |
-|:-:|-|
-| ubuntu-ldap | sudo ufw allow 'Apache'<br>sudo ufw allow 80/tcp<br>sudo ufw allow 22/tcp<br>sudo ufw default deny incoming<br>sudo ufw default allow outgoing |
-| ubuntu-xx | sudo ufw allow 'Apache'<br>sudo ufw allow 22/tcp<br>sudo ufw default deny incoming<br>sudo ufw default allow outgoing |
+sudo apt-get install ufw -y
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+sudo ufw allow ssh
+sudo ufw allow 22
+sudo ufw allow 80
+sudo ufw enable
 
 
 #### Fail2Ban installiert
@@ -102,6 +105,11 @@ Das Datei system des Backups speicher ist xfs. Daher muss auf dem Backup server 
 ```
     sudo apt-get install xfsprogs
 ```
+
+## Netzwerkplan
+***
+![Netzwerkplan](https://raw.githubusercontent.com/tillgehlhaar/M300TGE/main/Netzwerkplan.png)
+
 
 ## Reflexion
 
