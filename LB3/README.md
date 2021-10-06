@@ -99,27 +99,13 @@ $ docker rm $(docker ps -a -f status=exited -q)
 Heute haben wir LB2 abgeschlossen und abgegeben. Danach haben wir mit dem Thema Containter gestartet. Im modul arbeiten wir mit der Containerumgebung Docker. Wir wollen Docker im zusammenspiel mit Docker verwenden. 
 
 Wir hatten vom Lehrer eine ausführliche Einführung zu Container. Dabei sollten wir den unterschied zweischen VMS und Container kennenlernen und das Prinzip von Container verstehen. 
-### Wissensatand
+### Wissenstand
 
 Ich hatte bereits von Docker und Container gehört und in etwa gewisst was es ist. Jedoch hatte ich noch nie damit gearbeitet oder intensiv beschäftigt. Ich konnte dadurch viel dazu Lernen. Das ganze war nicht einfach zu verstehen jedoch 
 
 ### Probleme
 
-Ich hatte probleme mit dem Image auf 
-
-### 08.09.21
-
-Da ich es nicht hinbekommen habe Windows VMs aufzusetzen und ich vergangen Woche, im Geschäft meherer Debian 10 maschinen aufsetzten musste und genau gleich konifuriert habe von hand, wollte ich genau dies automatisieren. 
-Ich erstellen in meinem Vagrant File also 4 identische Debian Backup Server. Darauf erstelle ich eine grund konfiguration die überall gleich ist. 
- 
-
-### Wissensatand
-
-Ich konnte eingies Lernen über Vagrant und welche möglichkeiten es damit gibt. Ausserdem habe ich neue Linux befehele kennengelernt. Wie z.B. sed. 
-
-### Probleme
-
-Ich hatte Probleme mit übung zu der NodeJS app. Dabei konnte ich das Docker-Image nicht Online registrieren. 
+Ich hatte probleme mit dem Image auf Docker zu registiren in der NodeJS übung. 
 
 
 ## Technische Angaben
