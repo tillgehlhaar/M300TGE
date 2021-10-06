@@ -94,25 +94,18 @@ $ docker rm $(docker ps -a -f status=exited -q)
 
 ## Lerndokumentation
 
-### 25.08.21
+### 22.09.21
 
-Wir starteten heute in den BIST Kurts und somit in das Modul 300. Zum start haben wir unsere Arbeitsumgebung eingerichtet mit folgenden komponenten: 
+Heute haben wir LB2 abgeschlossen und abgegeben. Danach haben wir mit dem Thema Containter gestartet. Im modul arbeiten wir mit der Containerumgebung Docker. Wir wollen Docker im zusammenspiel mit Docker verwenden. 
 
-* GitHub 
-* Git Client
-* VirtualBox
-* Vagrant
-* Visual Studio Code
-  
-Wir lerntet danach durch eine kurze einführung das Tool Vagrant kennen. Mit dem Tool kann man VMs per Skript automatisch erstellen und konfigurieren. Bis her kannte ich diese möglichkeit nicht. Ich habe bisher aufwändig alles einzel von Hand konfiguriert. Ich habe heute viel herum probiert und verschiedene VMs mit einem Vagrant file erstellt. Als Projekt dachte ich mir etwas mit Windwos Server zu machen da wir dies im GEschäft gut brauchen könnten. Dies hat jedoch nicht korrekt funktioniert. 
-
+Wir hatten vom Lehrer eine ausführliche Einführung zu Container. Dabei sollten wir den unterschied zweischen VMS und Container kennenlernen und das Prinzip von Container verstehen. 
 ### Wissensatand
 
-Bisher habe ich schon öfters mit Virtualisierung gearbeitet und auch einwenig erfahrung mit Linux. Die Tools Git und VisulStudio habe ich in vergangenheit auch schon öfters genutzt. Was mir heute komplett neu war, ist Vagrant.
+Ich hatte bereits von Docker und Container gehört und in etwa gewisst was es ist. Jedoch hatte ich noch nie damit gearbeitet oder intensiv beschäftigt. Ich konnte dadurch viel dazu Lernen. Das ganze war nicht einfach zu verstehen jedoch 
 
 ### Probleme
 
-Windows VM erstellen 
+Ich hatte probleme mit dem Image auf 
 
 ### 08.09.21
 
@@ -126,25 +119,37 @@ Ich konnte eingies Lernen über Vagrant und welche möglichkeiten es damit gibt.
 
 ### Probleme
 
-Nichts besonderes.
+Ich hatte Probleme mit übung zu der NodeJS app. Dabei konnte ich das Docker-Image nicht Online registrieren. 
 
 
-## Sicherheitsaspekte
-
-
-
-#
-
-
-## Netzwerkplan
+## Technische Angaben
 ***
+### VMS
+| Server | Aufgbae |
+|:-:|-|
+| nextcloud-1 | Nextcloud|
+| nextcloud-2 | Nextcloud mit Proxy und Backup |
 
+### Test
+***
+ Nr. | Beschreibung | Kontrollie | Soll-Situation | Ist-Situation | Bestanden? |
+|:-:|-|-|-|-|:-:|
+| 1 | `nextcloud-1` sollte ubuntu-ldap pingen | ping 192.168.100.10  | ping funktioniert| ping funktioniert | Y |
+| 2 | `nextcloud-2` PhPmyadmin funktioniert? via IP Zugriff | http://192.168.100.11/phpmyadmin/ | Zugriff erfolgreich | Zugriff erfolgreich | Y |
+| 3 | `nextcloud-1` Apache Server funktioniert? via IP Zugriff | http://192.168.100.12 | Zugriff erfolgreich | Zugriff erfolgreich | Y |
+| 4 | `nextcloud-2` Apache Server funktioniert? via Port Zugriff | http://localhost:8012/ | Zugriff erfolgreich | Zugriff erfolgreich | Y |
+| 5 | `nextcloud-1` Zugriff SSH | vagrant ssh ubuntu-ldap | Zugriff erfolgreich | Zugriff erfolgreich | Y |
+| 6 | `nextcloud-2` Zugriff phpldapadmin | http://192.168.100.10/phpldapadmin/ | Zugriff erfolgreich | Zugriff erfolgreich | Y |
+| 7 | `nextcloud-1` Create Database via mysql shell | vagrant ssh<br>mysql -uroot -proot<br>create databse rocket<br>show databases; | Datenbank erstellt | Datenbank erstellt | Y |
+| 8 | `nextcloud-2` Create Database via phpmyadmin  | http://192.168.100.10/phpmyadmin/ | Datenbank erstellt | Datenbank erstellt | Y |
 
 
 ## Reflexion
 
 
+Da das ganze Container/Docker Thema neu für mich war, hatte ich anfangs etwas schwirigkeiten alles zu verstehen und mich zurecht zu finden. Ich startet mit den beiden Übungen auf Teams. Bei der NodeJS hatte ich etwas Probleme was mich viel Zeit gekostet hat. 
 
+Danach haben ich und Sangeeth gestartet etwas eigenes umzusetzen. Wir habe und dazu entschieden Nextcloud zu Containern da wir dies für unsere StartUp welches wir in Wirtschaft gegründet haben brauchen können. Die zusammenarbeit lief dabei sehr gut. Wir konnten gut arbeiten und haben uns gut ergänzt und kamen voran. 
 
 
 
